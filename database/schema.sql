@@ -1,4 +1,4 @@
-CREATECREATE DATABASE IF NOT EXISTS DBML;
+CREATE DATABASE IF NOT EXISTS DBML;
 
 USE DBML;
 
@@ -59,3 +59,8 @@ ALTER TABLE bill_products
   ADD CONSTRAINT FK_Products_TO_bill_products
     FOREIGN KEY (product_id)
     REFERENCES Products (product_id);
+
+USE DBML;
+
+
+INSERT INTO Clients (client_id, total) VALUES(10,15.00);
