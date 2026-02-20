@@ -4,17 +4,17 @@ USE DBML;
 
 CREATE TABLE bill_products
 (
-  bill_product_id INT NOT NULL AUTO_INCREMENT,
-  bill_id         INT NOT NULL,
+  bill_product_id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  bill_id         INT UNSIGNED NOT NULL,
   quantity        INT NOT NULL,
-  product_id      INT NOT NULL,
+  product_id      INT UNSIGNED NOT NULL,
   PRIMARY KEY (bill_product_id)
 );
 
 CREATE TABLE Bills
 (
-  bill_id     INT       NOT NULL AUTO_INCREMENT,
-  client_id   INT       NOT NULL ,
+  bill_id     INT  UNSIGNED NOT NULL AUTO_INCREMENT,
+  client_id   INT   UNSIGNED NOT NULL ,
   total       INT       NOT NULL,
   status      ENUM('open', 'closed', 'cancelled') NOT NULL DEFAULT 'open',
   created_at  TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -24,7 +24,7 @@ CREATE TABLE Bills
 
 CREATE TABLE Clients
 (
-  client_id    INT         NOT NULL AUTO_INCREMENT,
+  client_id    INT   UNSIGNED NOT NULL AUTO_INCREMENT,
   name         VARCHAR(100) NOT NULL,
   email        VARCHAR(30) NOT NULL UNIQUE,
   phone_number VARCHAR(15) NULL    ,
@@ -35,7 +35,7 @@ CREATE TABLE Clients
 
 CREATE TABLE Products
 (
-  product_id  INT         NOT NULL AUTO_INCREMENT,
+  product_id  INT   UNSIGNED NOT NULL AUTO_INCREMENT,
   name        VARCHAR(50) NOT NULL UNIQUE,
   slug        VARCHAR(50) NOT NULL UNIQUE,
   description TEXT        NULL    ,
