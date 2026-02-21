@@ -65,3 +65,6 @@ INSERT INTO bill_products (bill_id, quantity, product_id) VALUES
 (1, 1, 1), -- Bill 1 (John Doe) bought 1 Laptop
 (1, 1, 2), -- Bill 1 (John Doe) bought 1 Smartphone
 (2, 1, 2); -- Bill 2 (Jane Smith) bought 1 Smartphone
+
+
+SHOW TABLES LIKE 'Products';
