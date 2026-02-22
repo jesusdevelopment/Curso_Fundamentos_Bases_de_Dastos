@@ -78,4 +78,11 @@ CREATE TABLE test
   PRIMARY KEY (test_id)
 );
 
-SELECT * FROM Products;
+ALTER TABLE test add column price DOUBLE(8,2) NOT NULL;
+
+ALTER TABLE test add column description TEXT NULL AFTER name;
+ALTER TABLE test modify column price DECIMAL(10,2) NOT NULL;
+
+ALTER TABLE test RENAME COLUMN price TO prices;
+
+ALTER TABLE test RENAME TO tests;
