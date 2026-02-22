@@ -67,4 +67,15 @@ INSERT INTO bill_products (bill_id, quantity, product_id) VALUES
 (2, 1, 2); -- Bill 2 (Jane Smith) bought 1 Smartphone
 
 
-SHOW TABLES LIKE 'Products';
+USE Curso_Fundamentos_DB;
+CREATE TABLE test
+(
+  test_id INT NOT NULL AUTO_INCREMENT,
+  name VARCHAR(50) NOT NULL,
+  qty INT NOT NULL,
+  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  modified_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (test_id)
+);
+
+SELECT * FROM Products;
