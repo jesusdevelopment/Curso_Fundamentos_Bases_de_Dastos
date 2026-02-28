@@ -1,6 +1,6 @@
-create database if not exists platzisql;
+create database if not exists Curso_Fundamentos_DB2;
 
-use platzisql;
+use Curso_Fundamentos_DB2;
 create table if not exists clients (
   client_id integer primary key auto_increment,
   name varchar(100) not null,
@@ -42,3 +42,11 @@ create table if not exists bill_products (
   created_at timestamp not null default CURRENT_TIMESTAMP,
   updated_at timestamp not null default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP
 );
+
+
+
+SELECT email, IF(email LIKE '%GMAIL%', 1, 0) FROM clients LIMIT 30;
+
+
+SELECT email,CASE WHEN email LIKE '%@gmail.com' THEN 'Gmail'WHEN email 
+LIKE'%@hotmail.com'THEN'Hotmail'ELSE'Otro proveedor'END AS proveedor FROM clients LIMIT 35 ;
