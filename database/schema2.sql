@@ -86,3 +86,55 @@ ALTER TABLE test modify column price DECIMAL(10,2) NOT NULL;
 ALTER TABLE test RENAME COLUMN price TO prices;
 
 ALTER TABLE test RENAME TO tests;
+
+USE Curso_Fundamentos_DB;
+INSERT INTO Products (name, slug, description, price) VALUES
+('Tablet', 'tablet', 'A lightweight tablet perfect for browsing and media consumption.', 299.99),
+('Headphones', 'headphones', 'Noise-cancelling headphones with superior sound quality.', 199.99);
+
+USE Curso_Fundamentos_DB;
+
+-- Primera instrucción
+INSERT INTO Products (name, slug, description, price) 
+VALUES ('Monitor', 'monitor', 'A 27-inch 4K monitor...', 349.99) 
+ON DUPLICATE KEY UPDATE description = VALUES(slug);
+
+-- Segunda instrucción
+INSERT INTO Products (name, slug, description, price) 
+VALUES ('Keyboard', 'keyboard', 'A mechanical keyboard...', 89.99) 
+ON DUPLICATE KEY UPDATE description = CONCAT('El precio es: ', price);
+
+
+SELECT CONCAT(rand());
+
+
+USE Curso_Fundamentos_DB;
+
+CREATE TABLE IF NOT EXISTS products(  
+  product_id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,  
+  SKU VARCHAR(20)NOT NULL UNIQUE,
+  Name VARCHAR(50)NOT NULL,  
+  slug VARCHAR(50)NOT NULL UNIQUE,  
+  description TEXT,  
+  price DOUBLE(10,2),  
+  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,  
+  modified_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP);
+
+USE Curso_Fundamentos_DB;
+
+
+ALTER TABLE bill_products DROP FOREIGN KEY FK_Products_Details ;
+DROP TABLE IF EXISTS Products;
+
+CREATE TABLE IF NOT EXISTS Products (
+  product_id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+  SKU VARCHAR(20) NOT NULL UNIQUE,
+  Name VARCHAR(50) NOT NULL,
+  slug VARCHAR(50) NOT NULL UNIQUE,
+  description TEXT,
+  price DOUBLE(10,2),
+  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  modified_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+ALTER TABLE Products ADD COLUMN Price DOUBLE(10,2) NOT NULL AFTER slug;
